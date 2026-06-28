@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+/* ── Reset ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-color: #0d0d0d;
+  font-family: 'Segoe UI', Arial, sans-serif;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* ── Header ── */
+.header {
+  text-align: center;
+  padding: 50px 20px 40px;
+  background: linear-gradient(180deg, #1a0000, #0d0d0d);
+  border-bottom: 3px solid #cc0000;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.header::before {
+  content: "🌅";
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: #cc0000;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow: 0 0 20px rgba(204, 0, 0, 0.7);
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #888888;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── Gallery Grid ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+/* ── Card ── */
+.card {
+  background-color: #1a0000;
+  border: 1px solid #440000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(204, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(204, 0, 0, 0.5);
+  border-color: #cc0000;
+}
+
+.card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 18px;
+  border-top: 2px solid #440000;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+  color: #cc0000;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-body p {
+  font-size: 0.88rem;
+  color: #999999;
+  line-height: 1.6;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(0deg, #1a0000, #0d0d0d);
+  border-top: 3px solid #cc0000;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  color: #666666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+
+  .header h1 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
   }
 }
